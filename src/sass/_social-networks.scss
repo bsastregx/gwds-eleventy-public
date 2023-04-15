@@ -1,0 +1,29 @@
+.social-networks {
+  display: flex;
+  font-size: 24px;
+  gap: var(--gwds__space--s);
+  justify-content: center;
+
+  &__link:hover {
+    color: var(--gwds__color--blue-400);
+  }
+
+  /* RESPONSIVE */
+  /*sm*/
+  @media (min-width: 576px) {
+  }
+  /*md*/
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+  /*lg*/
+  @media (min-width: 992px) {
+    justify-content: center;
+  }
+  /*xl*/
+  @media (min-width: 1200px) {
+  }
+  /*xxl*/
+  @media (min-width: 1400px) {
+  }
+}

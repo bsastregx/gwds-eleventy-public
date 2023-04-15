@@ -1,0 +1,31 @@
+export declare class GwLookAtMe {
+  bgColor: string;
+  preTitle: string;
+  mainTitle: string;
+  pt0: boolean;
+  pb0: boolean;
+  alignContent: 'left' | 'center' | 'right';
+  bgImage: string;
+  bgSize: string;
+  description: string;
+  firstButtonLabel: string;
+  firstButtonUrl: string;
+  firstButtonType: 'primary' | 'secondary' | 'tertiary';
+  firstButtonTarget: '_blank' | '_self';
+  secondButtonLabel: string;
+  secondButtonUrl: string;
+  secondButtonType: 'primary' | 'secondary' | 'tertiary';
+  secondButtonTarget: '_blank' | '_self';
+  thirdButtonLabel: string;
+  thirdButtonUrl: string;
+  thirdButtonType: 'primary' | 'secondary' | 'tertiary';
+  thirdButtonTarget: '_blank' | '_self';
+  rowClasses: string;
+  colClasses: string;
+  bgPosition: string;
+  textColor: string;
+  el: HTMLElement;
+  componentWillLoad(): void;
+  componentDidLoad(): void;
+  render(): any;
+}

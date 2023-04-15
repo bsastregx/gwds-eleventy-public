@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.gwds-show-and-tell {
+  display: block;
+  /* RESPONSIVE */
+  /*sm*/
+  /*md*/
+  /*lg*/
+  /*xl*/
+  /*xxl*/
+}
+.gwds-show-and-tell__content-wrapper :last-child {
+  margin-bottom: 0;
+}
+.gwds-show-and-tell__image {
+  margin-top: var(--gwds__space--m);
+}
+@media (min-width: 992px) {
+  .gwds-show-and-tell__image {
+    margin-top: 0;
+  }
+}

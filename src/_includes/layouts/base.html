@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "partials/head.html" %}
+<body class="opacity-0 no-scroll">
+    {% include "partials/header.html" %}
+    {{content | safe}}
+    {% include "partials/site-footer.html" %}
+</body>
+</html>

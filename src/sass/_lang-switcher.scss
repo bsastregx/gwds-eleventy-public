@@ -1,0 +1,25 @@
+.switcher-container {
+  display: flex;
+  justify-content: end;
+}
+.lang-switcher {
+  display: inline-flex;
+  padding: 8px 8px !important;
+  color: var(--gwds__color--black);
+  border-radius: 30px;
+  margin: 0;
+  li {
+    padding: 0 8px;
+    a {
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &__item--active {
+    a {
+      opacity: 1 !important;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{% set menuItems = menuEs.data.attributes.menu_items.data %}
+{% set logoUrl = menuEs.data.attributes.logo.data.attributes.url %}
+
+<header class="main-menu">
+    <a href="/en" class="main-menu__logo">
+        <img src="http://localhost:1337{{logoUrl}}" alt="GeneXus Logo">
+    </a>
+    <nav class="main-menu__nav">
+         <ul class="main-menu__menu unstyled">
+            {% for menuItem in menuItems %}
+
+                {% set hasAside = false %}
+                {% set mainClasses = "main-menu__main main-menu__main--full-width" %}
+
+                <!-- check if this menu item has some component on the aside -->
+                {% for component in menuItems.menu__content %}
+                    {% if component.display_aside === true %}
+                        {% set hasAside = true %}
+                        {% set mainClasses = "main-menu__main" %}
+                    {% endif %}
+                {% endfor %}
+
+                {% set content = menuItem.attributes.menu__content %}
+
+                <li class="main-menu__item">
+                    <span class="main-menu__item-container">
+                        {{menuItem.attributes.label}}
+                    </span>
+
+                    {% if content.length %}
+                    <div class="main-menu__item-wrapper">
+                        
+                        <!-- menu main -->
+                        <main class="{{mainClasses}}">
+
+                            <!-- loop through menu content -->
+                            {% for menuComponent in content %}
+
+                                <!-- if item is type "main" (not "aside") -->
+                                {% if menuComponent.display_aside === false %}
+                                    {% include "partials/menu-components.html" %}
+                                {% else %}                       
+                                    {% set hasAside = true %}
+                                {% endif %}
+
+                            {% endfor %}
+                        </main>
+
+                        <!-- menu aside -->
+                        {% if hasAside === true %}
+                            <aside class="main-menu__aside">
+
+                                <!-- loop through menu content -->
+                                {% for menuComponent in content %}
+
+                                    <!-- if item is type "main" (not "aside") -->
+                                    {% if menuComponent.display_aside === true %}
+                                        {% include "partials/menu-components.html" %}
+                                    {% endif %}
+                                    
+                                {% endfor %}
+
+                            </aside>
+                        {% endif %}
+
+                    </div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            <span class="main-menu__item-container">
+                <li class="main-menu__item p-0">
+                    <span class="main-menu__item-container">
+                        <a class="main-menu__item-link" href="#">login</a>
+                    </span>
+                </li>
+            </span>
+         </ul>
+    </nav>
+</header>

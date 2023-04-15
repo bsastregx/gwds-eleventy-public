@@ -1,0 +1,68 @@
+---
+title: "Homepage"
+description: "This is the homepage"
+layout: "layouts/base.html"
+key: "home"
+---
+
+<script>
+    window.addEventListener('message', listenerMessages);
+    function listenerMessages(eventInfo) {
+        console.log("message event triggered");
+        console.log(eventInfo.data);
+        document.querySelector("iframe").style.height = `${eventInfo.data.height}px`;
+    }
+</script>
+<style>
+    body {
+        margin: 0;
+    }
+    iframe {
+        border: 0;
+        width: 100%;
+    }
+    #iframe-cabezal {
+        height: 100px;
+        background-color: black;
+    }
+    #iframe-login {
+        height: 1000px;
+    }
+</style>
+
+<script>
+    window.addEventListener('load', (event) => {
+    
+     var ip = document.getElementsByTagName('iframe')[1];
+     var user = document.getElementById("GAMIPHEADER");
+    
+     if (ip) {
+      ip.addEventListener(
+       'load',
+       function() {
+        if (user) {
+         user.src = 'https://www5.genexus.com/xev3/GXTMsg.aspx';
+        }
+   else{
+    console.log('User iframe does not exist')
+    }
+       },
+       false
+      );
+     }
+     else{
+    if(user){
+   user.src = 'https://www5.genexus.com/xev3/GXTMsg.aspx';
+    }
+    else{
+    console.log('User iframe does not exist')
+    }
+    
+     }
+    });
+   </script>
+
+<!--<iframe id="iframe-cabezal" data-autoheight scrolling="no" src="https://www5.genexus.com/xev3/GXTMsg.aspx"></iframe>-->
+<iframe id="iframe-login" data-autoheight scrolling="no" src="https://www5.genexus.com/xev3/vtaonlineplanes.aspx?E"></iframe>
+
+{% include "partials/site-footer.html" %}

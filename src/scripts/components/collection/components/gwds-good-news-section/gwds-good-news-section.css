@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+.gwds-good-news-section__slotted-content *:last-child {
+  margin-bottom: 0;
+}
+.gwds-good-news-section__wrapper {
+  margin-top: var(--gwds__space--l);
+}

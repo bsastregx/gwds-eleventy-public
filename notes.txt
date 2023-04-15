@@ -1,0 +1,23 @@
+Luego de bajar la repo:
+1. npm install
+2. npm start
+3. Abrir el puerto sugerido
+
+-----------------
+console.log
+<script>console.log({{hasTranslation | dump | safe}})</script>{% include "partials/lang-switcher.html" %}
+-----------------
+
+Iframes en genexus.com: 
+- https://www.genexus.com/es/developers/downloadcenter
+- https://www.genexus.com/es/catalogo-de-soluciones/catalogo
+
+https://medium.com/@richyinbeta/eleventy-strapi-headless-cms-with-automatic-page-creating-and-updating-86942f10c19a
+https://docs.strapi.io/developer-docs/latest/developer-resources/content-api/integrations/11ty.html#configure-11ty
+
+
+-----------------
+
+packages
+
+- dotenv: is used to setup .env variables as suggested in eleventy documentation: https://www.11ty.dev/docs/environment-vars/

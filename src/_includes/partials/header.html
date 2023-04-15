@@ -1,0 +1,10 @@
+{#% include "partials/lang-switcher.html" %#}
+
+<!-- include locale menu -->
+{% if locale === 'es' %}
+    {% include "partials/menu-es.html" %}
+{% elif locale === 'pt' %}
+    {% include "partials/menu-pt.html" %}
+{% else %}
+    {% include "partials/menu-en.html" %}
+{% endif %}

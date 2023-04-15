@@ -1,0 +1,18 @@
+.gwds-stack-item {
+  display: none;
+}
+.gwds-stack-item__icon {
+  display: inline-block;
+  margin-right: var(--gwds__space--s);
+}
+.gwds-stack-item__title {
+  display: flex;
+  align-items: center;
+}
+.gwds-stack-item__button {
+  margin-top: var(--gwds__space--m);
+  margin-bottom: 0;
+}
+.gwds-stack-item--visible {
+  display: block;
+}

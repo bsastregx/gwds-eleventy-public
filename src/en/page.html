@@ -1,0 +1,51 @@
+---
+title: "Page"
+description: "This is the first page"
+layout: "layouts/base.html"
+key: "page"
+---
+
+{% set components = page.data.attributes.content %}
+{% for component in components %}
+    {% if component.__component == "general.blocks" %}
+        {% set blockItems = component.block__items %}
+        <gwds-blocks
+        bg-color={{component.background_color}}
+        display={{component.display}}
+        main-title="{{component.title}}"
+        description="{{component.description}}"
+        first-button-label="{{component.button_1.label}}"
+        first-button-url="{{component.button_1.url}}"
+        first-button-type="{{component.button_1.type}}"
+        second-button-label="{{component.button_2.label}}"
+        second-button-url="{{component.button_2.url}}"
+        second-button-type="{{component.button_2.type}}"
+        third-button-label="{{component.button_3.label}}"
+        third-button-url="{{component.button_3.url}}"
+        third-button-type="{{component.button_3.type}}"
+        >
+        {% for card in blockItems %}
+            <gwds-card
+            bg-color="{{card.background_color}}"
+            title-label="{{card.title}}"
+            description="{{card.description}}"
+            link-label="{{card.link.label}}"
+            link-url="{{card.link.link}}"
+        >
+        </gwds-card>
+        {% endfor %}
+
+        </gwds-blocks>
+    {% elif component.__component == "general.list" %}
+        {% set listItems = component.list__items %}
+        <gwds-list bg-color="{{component.background__color}}" main-title="{{component.title}}">
+            {% for listItem in listItems %}
+                <gwds-list-item icon-url={{listItem.icon.data.attributes.url}}>
+                    {{listItem.description}}
+                </gwds-list-item>
+            {% endfor %}
+        </gwds-list>
+    {% endif %}
+
+    
+{% endfor %}

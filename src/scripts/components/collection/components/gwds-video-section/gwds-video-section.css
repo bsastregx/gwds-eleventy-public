@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.gwds-video-section {
+  display: block;
+  /* RESPONSIVE */
+  /*lg*/
+}
+@media (min-width: 992px) {
+  .gwds-video-section__content-wrapper :last-child {
+    margin-bottom: 0;
+  }
+}

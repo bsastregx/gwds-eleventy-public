@@ -1,0 +1,43 @@
+.site-footer {
+  text-align: center;
+  &__section {
+    padding: var(--gwds__space--m) 0;
+    background-color: var(--gwds__color--dark-200);
+  }
+  &__col {
+    margin-bottom: var(--gwds__space--s);
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__gxlogo {
+    img {
+      width: 100px;
+    }
+  }
+  /* RESPONSIVE */
+  /*sm*/
+  @media (min-width: 576px) {
+  }
+  /*md*/
+  @media (min-width: 768px) {
+    &__col {
+      margin-bottom: var(--gwds__space--m);
+    }
+  }
+  /*lg*/
+  @media (min-width: 992px) {
+    &__section {
+      padding: var(--gwds__space--l) 0;
+    }
+    &__col {
+      margin-bottom: 0;
+    }
+  }
+  /*xl*/
+  @media (min-width: 1200px) {
+  }
+  /*xxl*/
+  @media (min-width: 1400px) {
+  }
+}

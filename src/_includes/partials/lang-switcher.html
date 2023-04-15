@@ -1,0 +1,29 @@
+<div class="switcher-container">
+  {% for lg in site.languages %}
+    {% if loop.first %}<ul class="lang-switcher unstyled">{% endif %}
+  
+    {# set translatedUrl to the homepage of that language by default #}
+    {% set translatedUrl = "/" + lg.code + "/" %}
+  
+    {# set current language class #}
+    {% set activeClass = "lang-switcher__item--active" if lg.code == locale else "" %}
+  
+    {% set hasTranslation = false %}
+    {# loop through all the content of the site #}
+    {% for item in collections.all %}
+      {# check matches #}
+      {% if item.data.key == key and item.data.locale == lg.code %}
+        {% set hasTranslation = true %}
+        {% set translatedUrl = item.url %}
+      {% endif %}
+    {% endfor%}
+  
+    {% if hasTranslation == true %}
+    <li class="lang-switcher__item {{ activeClass }}">
+      <a class="lang-switcher__link" href="{{ translatedUrl }}">{{ lg.code }}</a>
+    </li>
+    {% endif %}
+  
+    {% if loop.last %}</ul>{% endif %}
+  {% endfor %}
+</div>

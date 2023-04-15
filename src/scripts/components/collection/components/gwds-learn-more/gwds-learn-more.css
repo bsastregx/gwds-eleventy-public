@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+.gwds-learn-more__col-left :last-child {
+  margin-bottom: 0;
+}

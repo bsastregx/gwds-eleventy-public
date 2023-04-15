@@ -1,0 +1,106 @@
+{% set type = menuComponent.__component %}
+
+{% if type === 'menu.menu-title' %}
+
+    {% if menuComponent.description.length %}
+        {% set classes = "main-menu__title main-menu__title--with-description" %}
+    {% else %}
+        {% set classes = "main-menu__title" %}
+    {% endif %}
+
+    <!-- title -->
+    {% if menuComponent.url %}
+        <a href={{menuComponent.url}}>                           
+            <h2 class="{{classes}}">{{menuComponent.label}}</h2>
+            <!-- description -->
+            {% if menuComponent.description.length %}
+                <p class="main-menu__title-description">
+                    {{menuComponent.description}}  
+                </p>
+            {% endif %}
+        </a>
+    {% else %}                       
+        <h2 class="{{classes}}">{{menuComponent.label}}</h2>
+        <!-- description -->
+        {% if menuComponent.description.length %}
+            <p class="main-menu__title-description">
+                {{menuComponent.description}}  
+            </p>
+        {% endif %}
+    {% endif %}
+
+{% elif type === 'menu.menu-link-cp' %}
+    
+    {% if menuComponent.underline %}
+        {% if menuComponent.align_right %}
+            {% set linkContainerClasses = "main-menu__link-container main-menu__link-container--tar" %}
+        {% else %}
+            {% set linkContainerClasses = "main-menu__link-container" %}
+        {% endif %}
+        <div class="{{linkContainerClasses}}">
+            <a href="{{menuComponent.url}}" class="main-menu__link main-menu__link--underlined">{{menuComponent.label}}</a>
+        </div>
+        
+    {% else %}
+        <a href={{menuComponent.url}} class="class="main-menu__link main-menu__link--underlined"">GeneXus for Students</a>
+    {% endif %}
+
+{% elif type === 'menu.menu-links-cp' %}
+    
+    {% set displayAsGrid = menuComponent.display_as_grid %}
+    {% set menuLinksCollections = menuComponent.menu_link_cls.data %}
+
+    {% for linksCollection in menuLinksCollections %}
+
+        {% set data = linksCollection.attributes %}
+        {% set title = data.title %}
+        {% set listClasses = "main-menu__links--cl unstyled" %}
+
+        {% if displayAsGrid %}
+            {% set listClasses = "main-menu__links--cl unstyled main-menu__links--cl--grid" %}
+        {% endif %}
+
+        <!-- If list has title -->
+        {% if title.length %}
+            {% if displayAsGrid === false %}
+                <div class="main-menu__links--cl__title-list-container">
+            {% endif %}
+            <h3 class="main-menu__links--cl__title">{{title}}</h3>
+        {% endif %}
+
+        <ul class="{{listClasses}}" >
+
+            {% for link in data.menu__link %}
+
+                {% set description = link.description %}
+                
+                <li class="main-menu__links--cl__item">
+                    <a href="{{link.url}}" class="main-menu__links--cl__link">
+                        
+                        {{link.label}}
+
+                        <!-- If link has description -->
+                        {% if description.length %}
+                            <p class="main-menu__links--cl__link__description">
+                                {{description}}
+                            </p>  
+                        {% endif %}
+ 
+                    </a>
+                </li>
+
+            {% endfor %}
+        </ul>
+
+        {% if displayAsGrid === false %}
+            </div> <!-- /.main-menu__links--cl__title-list-container -->
+        {% endif %}
+
+    {% endfor %}
+
+{% elif type === 'menu.menu-button' %}
+
+
+
+
+{% endif %}

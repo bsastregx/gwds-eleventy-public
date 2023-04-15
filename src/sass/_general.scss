@@ -1,0 +1,25 @@
+:root {
+  --mainMenuHeight: 60px;
+}
+
+body {
+  margin-top: var(--mainMenuHeight) !important; //equal menu height
+  transition: 0.2s opacity;
+  opacity: 1;
+
+  &.no-header {
+    margin-top: 0 !important;
+  }
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+.disable-scrollbar {
+  overflow-y: hidden;
+}
+
+@media (min-width: 992px) {
+  :root {
+    --mainMenuHeight: 80px;
+  }
+}

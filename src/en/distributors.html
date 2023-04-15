@@ -1,0 +1,30 @@
+---
+title: "Homepage"
+description: "This is the homepage"
+layout: "layouts/base.html"
+key: "home"
+---
+
+<script>
+    window.addEventListener('message', listenerMessages);
+    function listenerMessages(eventInfo) {
+        console.log("message event triggered");
+        console.log(eventInfo.data);
+        document.querySelector("iframe").style.height = `${eventInfo.data.height}px`;
+    }
+</script>
+<style>
+    body {
+        margin: 0;
+    }
+    iframe {
+        border: 0;
+        width: 100%;
+        height: 4000px;
+    }
+</style>
+
+<iframe data-autoheight scrolling="no" src="https://appweb.agenda.genexus.com/frontend.PartnersListtest.aspx?S"></iframe>
+
+{% include "partials/site-footer.html" %}
+{% include "partials/sidebar.html" %}

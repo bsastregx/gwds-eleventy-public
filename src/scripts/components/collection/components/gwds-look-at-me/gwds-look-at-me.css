@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.gwds-look-at-me {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 1600px;
+  background-position: bottom right;
+  position: relative;
+  transition: var(--gwds__transition--regular) background-color;
+}
+.gwds-look-at-me__buttons-container :last-child {
+  margin-right: 0;
+}
+
+/* RESPONSIVE */
+/*sm*/
+/*md*/
+/*lg*/
+@media (max-width: 991px) {
+  .gwds-look-at-me {
+    background-image: none !important;
+  }
+}
+/*xl*/
+/*xxl*/
